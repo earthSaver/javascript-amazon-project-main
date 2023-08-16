@@ -16,6 +16,16 @@ function saveToStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+export function calculateCartQuantity() {
+    
+    let cartQuantity = 0;
+
+    cart.forEach((item) => {
+        cartQuantity += item.quantity;
+    });
+
+    return cartQuantity;
+}
 
 export function addProductToCart(productId) {
     
@@ -37,7 +47,7 @@ export function addProductToCart(productId) {
     }
 
     saveToStorage();
-};
+}
 
 export function removeFromCart(productId) {
     let newCart = [];
