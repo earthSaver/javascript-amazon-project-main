@@ -1,5 +1,5 @@
 import { formatDate_week_month_date } from "../scripts/utils/date.js";
-import { formatCurrency } from "./utils/money.js";
+import { formatCurrency } from "../scripts/utils/money.js";
 
 class Delivery {
     constructor(days, priceCents) {
