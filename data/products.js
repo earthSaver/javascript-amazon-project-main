@@ -659,4 +659,4 @@ export const products = [
   }
 ];
 
-export const productMap =  new Map(products.map(product => [product.id, product]));
+export const productMap = new Map(products.map(product => [product.id, product]));
