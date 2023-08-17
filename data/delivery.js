@@ -21,7 +21,7 @@ class Delivery {
 }
 
 export const delivery = [
-    new Delivery(5, 999),
+    new Delivery(7, 0),
     new Delivery(6, 499),
-    new Delivery(7, 0)
+    new Delivery(5, 999)
 ];
