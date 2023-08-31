@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Sidebar Clicked Link Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li><a href="#" data-selector="ul li:eq(0) a">Home</a></li>
+                    <li><a href="#" data-selector="ul li:eq(1) a">Dashboard</a></li>
+                    <li><a href="#" data-selector="ul li:eq(2) a">Reports</a></li>
+                    <li><a href="#" data-selector="ul li:eq(3) a">Settings</a></li>
+                </ul>
+            </nav>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <!-- 主要内容区域 -->
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        // script.js
+        $(document).ready(function () {
+            // 从 localStorage 中读取之前选中的链接
+            var selectedLink = localStorage.getItem('selectedLink');
+            console.log("load: " + selectedLink)
+            if (selectedLink) {
+                $(selectedLink).addClass('active-link');
+            }
+
+            $('.nav-sidebar > li > a').click(function () {
+
+                console.log($(this).text())
+
+                // 移除所有链接的 active-link 类
+                $('.nav-sidebar > li > a').removeClass('active-link');
+                // 添加被点击链接的 active-link 类
+                $(this).addClass('active-link');
+
+                // 将选中的链接存储到 localStorage 中
+                localStorage.setItem('selectedLink', $(this).data('selector'));
+                console.log("save: " + $(this).data('selector'))
+            });
+        });
+    </script>
+</body>
+
+</html>
